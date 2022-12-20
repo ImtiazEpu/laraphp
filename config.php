@@ -1,10 +1,10 @@
 <?php
 
 return [
-   'database'=>[
-       'host'    => 'localhost',
-       'port'    => '3306',
-       'dbname'  => 'db_laraphp',
-       'charset' => 'utf8mb4'
-   ]
+    'database' => [
+        'host'    => 'localhost',
+        'port'    => '3306',
+        'dbname'  => 'db_laraphp',
+        'charset' => 'utf8mb4'
+    ]
 ];

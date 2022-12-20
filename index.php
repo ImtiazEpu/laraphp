@@ -5,10 +5,10 @@ require 'Database.php';
 
 $config = require( 'config.php' );
 
-$db    = new Database( $config[ 'database' ] );
+$db = new Database( $config[ 'database' ] );
 
 $query = "select * from posts";
 
-$posts = $db->query( $query)->fetchAll();
+$posts = $db->query( $query )->fetchAll();
 
 dd( $posts );
