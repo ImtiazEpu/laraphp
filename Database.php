@@ -9,18 +9,24 @@ class Database {
     /**
      * Construct method
      */
-    public function __construct() {
-        $dsn = "mysql:host=localhost;port=3306;dbname=db_laraphp;user=root;charset=utf8mb4";
+    public function __construct ( $config, $username = 'root', $password = '' ) {
 
-        $this->connection = new PDO($dsn,);
+        $dsn = 'mysql:' . http_build_query( $config, '', ';' );
+
+        $this->connection = new PDO( $dsn, $username, $password, [
+
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+
+        ] );
     }
 
     /**
      * @return array|false
      */
-    public function query($query) {
+    public function query ( $query ) {
 
-        $statement = $this->connection->prepare($query);
+        $statement = $this->connection->prepare( $query );
+
         $statement->execute();
 
         return $statement;
