@@ -3,10 +3,12 @@ require 'functions.php';
 require 'Database.php';
 //require 'router.php';
 
-$config = require('config.php');
+$config = require( 'config.php' );
 
-$db = new Database($config['database']);
+$db    = new Database( $config[ 'database' ] );
 
-$posts = $db->query("select * from posts")->fetchAll();
+$query = "select * from posts";
 
-dd($posts);
+$posts = $db->query( $query)->fetchAll();
+
+dd( $posts );
