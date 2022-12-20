@@ -1,13 +1,11 @@
 <?php
 require 'functions.php';
-require 'router.php';
+require 'Database.php';
+//require 'router.php';
 
-//Connect MySQL database.
 
-$dsn = "mysql:host=localhost;port=3306;dbname=db_laraphp;user=root;charset=utf8mb4";
 
-$pdo = new PDO($dsn,);
-$statement = $pdo->prepare("select * from posts");
-$statement->execute();
+$db = new Database();
+$posts = $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
 
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+dd($posts);
